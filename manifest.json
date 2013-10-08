@@ -1,0 +1,24 @@
+/*
+ * http://developer.chrome.com/extensions/manifest.html
+ *
+ * Любое расширение обязательно имеет файл манифеста.
+ * Содержит описание расширения, конфигурацию.
+ */
+{
+    //Обязательно
+    "manifest_version": 2,
+    "name": "Проверка правописания",
+    "version": "1.0.0.0",
+
+    //Желательно
+    "description": "Ищем опечатки на сайте!",
+
+    /*
+     * http://developer.chrome.com/extensions/manifest/icons.html
+     */
+    "icons": {
+        "16": "content/images/icon-16.png",
+        "48": "content/images/icon-48.png",
+        "128": "content/images/icon-128.png"
+    }
+}
