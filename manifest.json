@@ -27,5 +27,12 @@
      */
     "background": {
         "scripts": ["3rd/jquery-2.0.3.min.js", "background.js"]
-    }
+    },
+
+    /*
+     * http://developer.chrome.com/extensions/declare_permissions.html
+     */
+    "permissions": [
+        "contextMenus"
+    ]
 }
