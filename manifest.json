@@ -20,5 +20,12 @@
         "16": "content/images/icon-16.png",
         "48": "content/images/icon-48.png",
         "128": "content/images/icon-128.png"
+    },
+
+    /*
+     * http://developer.chrome.com/extensions/background_pages.html
+     */
+    "background": {
+        "scripts": ["3rd/jquery-2.0.3.min.js", "background.js"]
     }
 }
