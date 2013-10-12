@@ -26,13 +26,14 @@
      * http://developer.chrome.com/extensions/background_pages.html
      */
     "background": {
-        "scripts": ["3rd/jquery-2.0.3.min.js", "background.js"]
+        "scripts": ["3rd/jquery-2.0.3.min.js", "background.js", "spellChecker.js"]
     },
 
     /*
      * http://developer.chrome.com/extensions/declare_permissions.html
      */
     "permissions": [
+        "https://speller.yandex.net/services/spellservice.json/checkText",
         "contextMenus"
     ]
 }

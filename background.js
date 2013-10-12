@@ -5,7 +5,11 @@
 function contextMenuHandler(info, tab) {
     var text = info.selectionText;
 
-    console.log(text);
+    new SpellChecker().check(text).done(function(data) {
+            console.log(data);
+        }).fail(function() {
+            console.log(arguments);
+        });
 };
 
 /*
