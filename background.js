@@ -2,10 +2,32 @@
  * http://developer.chrome.com/extensions/background_pages.html - фоновая страница
  */
 
+function getHighlightedText(text, data) {
+    var result = '',
+        start = 0,
+        noSuggestion = 'Нет предположений',
+        errorCls = 'error-spell-checker';
+
+    data.forEach(function(item) {
+        var suggestion = item.s.join(', ') || noSuggestion;
+
+        result += text.substr(start, item.pos - start);
+        result += '<span class="{0}" title="{1}">{2}</span>'.
+            replace('{0}', errorCls).
+            replace('{1}', suggestion).
+            replace('{2}', item.word);
+
+        start = item.pos + item.len;
+    });
+
+    return result + text.substr(start, text.length - start);
+}
+
 function contextMenuHandler(info, tab) {
     var text = info.selectionText;
 
     new SpellChecker().check(text).done(function(data) {
+            var htmlResult = getHighlightedText(text, data);
 
             /*
              * http://developer.chrome.com/extensions/tabs.html#method-sendMessage
@@ -16,7 +38,7 @@ function contextMenuHandler(info, tab) {
              * См. contentScript.js
              */
             chrome.tabs.sendMessage(tab.id, {
-                content: 'Проверено!'
+                content: htmlResult
             });
         }).fail(function() {
             console.log(arguments);
