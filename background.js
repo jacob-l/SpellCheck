@@ -6,7 +6,18 @@ function contextMenuHandler(info, tab) {
     var text = info.selectionText;
 
     new SpellChecker().check(text).done(function(data) {
-            console.log(data);
+
+            /*
+             * http://developer.chrome.com/extensions/tabs.html#method-sendMessage
+             *
+             * Отправляет сообщение во встроенный нашим
+             * расширением скрипт в указанной вкладке.
+             *
+             * См. contentScript.js
+             */
+            chrome.tabs.sendMessage(tab.id, {
+                content: 'Проверено!'
+            });
         }).fail(function() {
             console.log(arguments);
         });

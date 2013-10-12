@@ -35,5 +35,20 @@
     "permissions": [
         "https://speller.yandex.net/services/spellservice.json/checkText",
         "contextMenus"
+    ],
+
+    /*
+     * http://developer.chrome.com/extensions/content_scripts.html
+     *
+     * Content scripts будут загружаться вместе с каждой веб-страницей,
+     * удовлетворяющей паттерну в matches.
+     * Чаще всего content scripts используются для доступа к dom.
+     */
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "css": [],
+            "js": ["3rd/jquery-2.0.3.min.js", "contentScript.js"]
+        }
     ]
 }
