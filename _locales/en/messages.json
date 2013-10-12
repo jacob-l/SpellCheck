@@ -1,0 +1,17 @@
+{
+    "extName": {
+        "message": "Spell check"
+    },
+    "extDescription": {
+        "message": "Find misspellings!"
+    },
+    "noSuggestion": {
+        "message": "No suggestion"
+    },
+    "checkSpelling": {
+        "message": "Check spelling"
+    },
+    "checking": {
+        "message": "Spell check"
+    }
+}

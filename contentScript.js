@@ -2,7 +2,7 @@ function showPopup(htmlMsg) {
     var popup = $(
         '<div class="wrapper-spell-checker reset-css-spell-checker">' +
             '<div class="header-spell-checker">' +
-                'Проверка правописания' +
+                chrome.i18n.getMessage('checking') +
                 '<div class="close-spell-checker"></div>' +
             '</div>' +
             '<div class="content-spell-checker">' +

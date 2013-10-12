@@ -5,7 +5,7 @@
 function getHighlightedText(text, data) {
     var result = '',
         start = 0,
-        noSuggestion = 'Нет предположений',
+        noSuggestion = chrome.i18n.getMessage('noSuggestion'),
         errorCls = 'error-spell-checker';
 
     data.forEach(function(item) {
@@ -58,7 +58,7 @@ chrome.runtime.onInstalled.addListener(function() {
      * Добавляем элемент в контекстное меню.
      */
     chrome.contextMenus.create({
-        title: 'Проверить правописание',
+        title: chrome.i18n.getMessage('checkSpelling'),
         //Элемент появится только тогда, когда есть выделенный текст на странице
         contexts: ['selection'],
         onclick: contextMenuHandler

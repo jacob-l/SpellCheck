@@ -7,11 +7,11 @@
 {
     //Обязательно
     "manifest_version": 2,
-    "name": "Проверка правописания",
+    "name": "__MSG_extName__",
     "version": "1.0.0.0",
 
     //Желательно
-    "description": "Ищем опечатки на сайте!",
+    "description": "__MSG_extDescription__",
 
     /*
      * http://developer.chrome.com/extensions/manifest/icons.html
@@ -50,5 +50,10 @@
             "css": ["content/css/popup.css"],
             "js": ["3rd/jquery-2.0.3.min.js", "contentScript.js"]
         }
-    ]
+    ],
+
+    /*
+     * http://developer.chrome.com/extensions/i18n.html
+     */
+    "default_locale": "ru"
 }
