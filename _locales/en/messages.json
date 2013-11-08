@@ -13,5 +13,8 @@
     },
     "checking": {
         "message": "Spell check"
+    },
+    "checkError": {
+        "message": "Error. Check your internet connection, or try another block of text."
     }
 }

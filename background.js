@@ -42,6 +42,9 @@ function contextMenuHandler(info, tab) {
             });
         }).fail(function() {
             console.log(arguments);
+            chrome.tabs.sendMessage(tab.id, {
+                content: chrome.i18n.getMessage('checkError')
+            });
         });
 };
 

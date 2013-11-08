@@ -9,13 +9,19 @@ function showPopup(htmlMsg) {
                 htmlMsg +
             '</div>' +
         '</div>'),
-        close = popup.find('div.close-spell-checker');
+        close = popup.find('div.close-spell-checker'),
+        body = $('body');
 
     close.click(function () {
         popup.remove();
     });
 
-    $('body').append(popup);
+    body.click(function (event) {
+        if ($(event.target).parents('div.wrapper-spell-checker').length === 0) {
+            popup.remove();
+        }
+    });
+    body.append(popup);
 }
 
 /*
