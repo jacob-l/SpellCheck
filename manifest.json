@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_extName__",
-    "version": "1.0.0.3",
+    "version": "1.0.0.5",
 
     "description": "__MSG_extDescription__",
 
@@ -12,6 +12,7 @@
     },
 
     "background": {
+        "persistent": false,
         "scripts": ["3rd/jquery-2.0.3.min.js", "background.js", "spellChecker.js"]
     },
 
@@ -26,10 +27,6 @@
             "css": ["content/css/popup.css"],
             "js": ["3rd/jquery-2.0.3.min.js", "contentScript.js"]
         }
-    ],
-
-    "web_accessible_resources": [
-        "3rd/jquery-2.0.3.min.map"
     ],
 
     "default_locale": "ru"

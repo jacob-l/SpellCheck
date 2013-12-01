@@ -1,7 +1,6 @@
 /*
  * http://developer.chrome.com/extensions/background_pages.html - фоновая страница
  */
-
 function getHighlightedText(text, data) {
     var result = '',
         start = 0,
@@ -48,13 +47,9 @@ function contextMenuHandler(info, tab) {
         });
 };
 
-/*
- * http://developer.chrome.com/extensions/runtime.html#event-onInstalled
- *
- * Это событие возникает, когда расширение впервые устанавливается,
- * обновляется до новой версии или Google Chrome обновляется до новой версии.
- */
-chrome.runtime.onInstalled.addListener(function() {
+chrome.contextMenus.onClicked.addListener(contextMenuHandler);
+
+function installContextMenu() {
     /*
      * http://developer.chrome.com/extensions/contextMenus.html#method-create
      *
@@ -64,6 +59,15 @@ chrome.runtime.onInstalled.addListener(function() {
         title: chrome.i18n.getMessage('checkSpelling'),
         //Элемент появится только тогда, когда есть выделенный текст на странице
         contexts: ['selection'],
-        onclick: contextMenuHandler
+        id: 'checkSpelling'
     })
-});
+}
+/*
+ * http://developer.chrome.com/extensions/runtime.html#event-onInstalled
+ *
+ * Это событие возникает, когда расширение впервые устанавливается,
+ * обновляется до новой версии или Google Chrome обновляется до новой версии.
+ */
+chrome.runtime.onInstalled.addListener(installContextMenu);
+
+chrome.runtime.onStartup.addListener(installContextMenu);
